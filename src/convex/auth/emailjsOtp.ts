@@ -11,7 +11,7 @@ export const emailjsOtp = Email({
   async generateVerificationToken() {
     const random: RandomReader = {
       read(bytes: Uint8Array) {
-        crypto.getRandomValues(bytes);
+        crypto.getRandomValues(bytes as Uint8Array<ArrayBuffer>);
       },
     };
     const alphabet = "0123456789";
